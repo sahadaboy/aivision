@@ -1,0 +1,79 @@
+{
+  "domain": "https://neuroscan.ru",
+  "url": "https://neuroscan.ru",
+  "status": {
+    "code": 200,
+    "ok": true
+  },
+  "cookies": {
+    "usage_detected": false,
+    "banner_detected": false
+  },
+  "analytics": {
+    "found": []
+  },
+  "meta_tags": {
+    "title": {
+      "present": true,
+      "content": "neuroscan.ru",
+      "length": 12
+    },
+    "description": {
+      "present": false
+    },
+    "keywords": {
+      "present": false
+    },
+    "viewport": {
+      "present": true,
+      "content": "width=device-width,initial-scale=1"
+    },
+    "charset": {
+      "present": true,
+      "content": "utf-8"
+    },
+    "robots": {
+      "present": false
+    },
+    "canonical": {
+      "present": false
+    },
+    "author": {
+      "present": false
+    }
+  },
+  "open_graph": {},
+  "schema_org": [],
+  "security": {},
+  "issues": [],
+  "recommendations": [
+    "Добавьте Google Analytics или Яндекс.Метрику для отслеживания посетителей",
+    "Добавьте meta description для сниппетов в поиске",
+    "Добавьте Open Graph разметку для красивых превью в соцсетях",
+    "Добавьте Schema.org разметку (Organization, LocalBusiness, Product и т.д.) для улучшения SEO"
+  ],
+  "twitter_cards": false,
+  "performance": {
+    "page_size_kb": 1.78,
+    "external_scripts": 0,
+    "external_styles": 0
+  },
+  "errors": [
+    "Отсутствует важный meta-тег: description"
+  ],
+  "warnings": [
+    "Не обнаружено явного использования cookie",
+    "Не найдено уведомления о cookie (может нарушать GDPR)",
+    "Не найдено ни одного счётчика аналитики",
+    "Title слишком короткий (12 символов, рекомендуется 50-60)",
+    "Отсутствуют важные Open Graph теги: og:title, og:description, og:image",
+    "Twitter Cards разметка отсутствует",
+    "Schema.org микроразметка не найдена",
+    "Content Security Policy не найден"
+  ],
+  "info": [
+    "Размер страницы: 1.78 KB",
+    "Сайт использует HTTPS"
+  ],
+  "score": 18
+}

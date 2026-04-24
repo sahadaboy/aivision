@@ -1,0 +1,85 @@
+{
+  "domain": "google.com",
+  "url": "https://google.com",
+  "status": {
+    "code": 200,
+    "ok": true
+  },
+  "cookies": {
+    "usage_detected": false,
+    "banner_detected": false
+  },
+  "analytics": {
+    "found": []
+  },
+  "meta_tags": {
+    "title": {
+      "present": true,
+      "content": "Google",
+      "length": 6
+    },
+    "description": {
+      "present": false
+    },
+    "keywords": {
+      "present": false
+    },
+    "viewport": {
+      "present": false
+    },
+    "charset": {
+      "present": true,
+      "content": "UTF-8"
+    },
+    "robots": {
+      "present": false
+    },
+    "canonical": {
+      "present": false
+    },
+    "author": {
+      "present": false
+    }
+  },
+  "open_graph": {},
+  "schema_org": [
+    "WebPage"
+  ],
+  "security": {},
+  "issues": [],
+  "recommendations": [
+    "Добавьте Google Analytics или Яндекс.Метрику для отслеживания посетителей",
+    "Добавьте meta description для сниппетов в поиске",
+    "Добавьте viewport для мобильной адаптивности",
+    "Добавьте Open Graph разметку для красивых превью в соцсетях",
+    "Добавьте loading='lazy' для изображений ниже первого экрана"
+  ],
+  "twitter_cards": false,
+  "performance": {
+    "page_size_kb": 184.93,
+    "external_scripts": 1,
+    "external_styles": 1,
+    "images_total": 11,
+    "images_lazy": 0
+  },
+  "errors": [
+    "Отсутствует важный meta-тег: description",
+    "Отсутствует важный meta-тег: viewport"
+  ],
+  "warnings": [
+    "Не обнаружено явного использования cookie",
+    "Не найдено уведомления о cookie (может нарушать GDPR)",
+    "Не найдено ни одного счётчика аналитики",
+    "Title слишком короткий (6 символов, рекомендуется 50-60)",
+    "Отсутствуют важные Open Graph теги: og:title, og:description, og:image",
+    "Twitter Cards разметка отсутствует",
+    "Только 0 из 11 изображений используют lazy loading",
+    "Content Security Policy не найден"
+  ],
+  "info": [
+    "Найдена Schema.org разметка: WebPage",
+    "Размер страницы: 184.93 KB",
+    "Сайт использует HTTPS"
+  ],
+  "score": 23
+}
