@@ -669,12 +669,13 @@
     .logo-grok { color: #333; }
 
     /* scan row bg colors */
-    .srow-chatgpt .scan-row-icon { border-color: rgba(16,163,127,.2); }
-    .srow-gemini  .scan-row-icon { border-color: rgba(66,133,244,.2); }
-    .srow-claude  .scan-row-icon { border-color: rgba(204,120,92,.2); }
-    .srow-copilot .scan-row-icon { border-color: rgba(0,120,212,.2); }
-    .srow-perplexity .scan-row-icon { border-color: rgba(32,178,170,.2); }
-    .srow-grok .scan-row-icon { border-color: rgba(51,51,51,.2); }
+    .srow-crawl .scan-row-icon { border-color: rgba(16,163,127,.2); }
+    .srow-seo .scan-row-icon { border-color: rgba(66,133,244,.2); }
+    .srow-schema .scan-row-icon { border-color: rgba(204,120,92,.2); }
+    .srow-aeo .scan-row-icon { border-color: rgba(0,120,212,.2); }
+    .srow-geo .scan-row-icon { border-color: rgba(32,178,170,.2); }
+    .srow-trackers .scan-row-icon { border-color: rgba(217,119,6,.2); }
+    .srow-ai-ready .scan-row-icon { border-color: rgba(51,51,51,.2); }
   </style>
 </head>
 <body>
@@ -771,7 +772,7 @@
             <div>
               <div class="scan-title">Выполняется глубокое сканирование</div>
             </div>
-            <div class="scan-sub" id="scan-counter">0 / 6</div>
+            <div class="scan-sub" id="scan-counter">0 / 7</div>
           </div>
           <div class="prog-wrap">
             <div class="prog-track">
@@ -779,65 +780,61 @@
             </div>
           </div>
           <div class="scan-body">
-            <div class="scan-row srow-chatgpt" id="sr-chatgpt">
-              <div class="scan-row-icon">
-                <svg viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-6.211-3.424 10.079 10.079 0 0 0-10.833 4.943 9.964 9.964 0 0 0-3.834 6.486 10.08 10.08 0 0 0-3.406 9.405 9.964 9.964 0 0 0 6.582 7.381 10.079 10.079 0 0 0 10.258 2.713 9.963 9.963 0 0 0 6.826 3.075 10.079 10.079 0 0 0 9.637-6.977 9.963 9.963 0 0 0 3.821-6.383 10.08 10.08 0 0 0-1.129-4.201zM22.498 37.886a7.474 7.474 0 0 1-4.799-1.735c.061-.033.168-.091.237-.134l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.49 7.496zM6.392 31.006a7.471 7.471 0 0 1-.894-5.023c.06.036.162.099.237.141l7.964 4.6a1.297 1.297 0 0 0 1.308 0l9.724-5.614v3.888a.12.12 0 0 1-.048.103l-8.051 4.649a7.504 7.504 0 0 1-10.24-2.744zM4.297 13.62A7.469 7.469 0 0 1 8.2 10.333c0 .068-.004.19-.004.274v9.201a1.294 1.294 0 0 0 .654 1.132l9.723 5.614-3.366 1.944a.12.12 0 0 1-.114.012L7.044 23.86a7.504 7.504 0 0 1-2.747-10.24zm27.658 6.437l-9.724-5.615 3.367-1.943a.121.121 0 0 1 .114-.012l8.048 4.648a7.498 7.498 0 0 1-1.158 13.528v-9.476a1.293 1.293 0 0 0-.647-1.13zm3.35-5.043c-.059-.037-.162-.099-.236-.141l-7.965-4.6a1.298 1.298 0 0 0-1.308 0l-9.723 5.614v-3.888a.12.12 0 0 1 .048-.103l8.05-4.645a7.497 7.497 0 0 1 11.135 7.763zm-21.063 6.929l-3.367-1.944a.12.12 0 0 1-.065-.092v-9.299a7.497 7.497 0 0 1 12.293-5.756 6.94 6.94 0 0 0-.236.134l-7.965 4.6a1.294 1.294 0 0 0-.654 1.132l-.006 11.225zm1.829-3.943l4.33-2.501 4.332 2.497v4.998l-4.330 2.500-4.332-2.500V18z" fill="#10A37F"/></svg>
-              </div>
+            <div class="scan-row srow-crawl" id="sr-crawl">
+              <div class="scan-row-icon">🕸️</div>
               <div class="scan-row-info">
-                <div class="scan-row-name">ChatGPT</div>
-                <div class="scan-row-detail" id="det-chatgpt">ожидание...</div>
+                <div class="scan-row-name">Сканирование сайта</div>
+                <div class="scan-row-detail" id="det-crawl">ожидание...</div>
               </div>
-              <div class="scan-row-state" id="st-chatgpt"><span class="state-wait">—</span></div>
+              <div class="scan-row-state" id="st-crawl"><span class="state-wait">—</span></div>
             </div>
-            <div class="scan-row srow-gemini" id="sr-gemini">
-              <div class="scan-row-icon">
-                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 28C14 26.0633 13.6267 24.2433 12.88 22.54C12.1567 20.8367 11.165 19.355 9.905 18.095C8.645 16.835 7.16333 15.8433 5.46 15.12C3.75667 14.3733 1.93667 14 0 14C1.93667 14 3.75667 13.6383 5.46 12.915C7.16333 12.1683 8.645 11.165 9.905 9.905C11.165 8.645 12.1567 7.16333 12.88 5.46C13.6267 3.75667 14 1.93667 14 0C14 1.93667 14.3617 3.75667 15.085 5.46C15.8317 7.16333 16.835 8.645 18.095 9.905C19.355 11.165 20.8367 12.1683 22.54 12.915C24.2433 13.6383 26.0633 14 28 14C26.0633 14 24.2433 14.3733 22.54 15.12C20.8367 15.8433 19.355 16.835 18.095 18.095C16.835 19.355 15.8317 20.8367 15.085 22.54C14.3617 24.2433 14 26.0633 14 28Z" fill="#4285F4"/></svg>
-              </div>
+            <div class="scan-row srow-seo" id="sr-seo">
+              <div class="scan-row-icon">📊</div>
               <div class="scan-row-info">
-                <div class="scan-row-name">Gemini</div>
-                <div class="scan-row-detail" id="det-gemini">ожидание...</div>
+                <div class="scan-row-name">SEO-аудит</div>
+                <div class="scan-row-detail" id="det-seo">ожидание...</div>
               </div>
-              <div class="scan-row-state" id="st-gemini"><span class="state-wait">—</span></div>
+              <div class="scan-row-state" id="st-seo"><span class="state-wait">—</span></div>
             </div>
-            <div class="scan-row srow-claude" id="sr-claude">
-              <div class="scan-row-icon">
-                <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.93 7.058C18.195 7.058 14 10.695 14 15.984c0 2.793 1.19 4.85 3.094 6.301L10.12 38.942h5.463l1.596-4.434h11.396l1.596 4.434h5.463L28.66 22.285c1.904-1.452 3.094-3.508 3.094-6.301 0-5.289-4.195-8.926-8.823-8.926zm0 4.434c2.52 0 4.434 1.915 4.434 4.492 0 2.578-1.913 4.493-4.434 4.493-2.52 0-4.433-1.915-4.433-4.493 0-2.577 1.912-4.492 4.433-4.492zm-3.834 13.37h7.668l-3.834 10.656-3.834-10.655z" fill="#CC785C"/></svg>
-              </div>
+            <div class="scan-row srow-schema" id="sr-schema">
+              <div class="scan-row-icon">🏷️</div>
               <div class="scan-row-info">
-                <div class="scan-row-name">Claude</div>
-                <div class="scan-row-detail" id="det-claude">ожидание...</div>
+                <div class="scan-row-name">Микроразметка Schema.org</div>
+                <div class="scan-row-detail" id="det-schema">ожидание...</div>
               </div>
-              <div class="scan-row-state" id="st-claude"><span class="state-wait">—</span></div>
+              <div class="scan-row-state" id="st-schema"><span class="state-wait">—</span></div>
             </div>
-            <div class="scan-row srow-copilot" id="sr-copilot">
-              <div class="scan-row-icon">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.5 14.5h-9a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5H9v-5h-.5a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h1v-5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H17V15h.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5zM12 8a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="#0078D4"/></svg>
-              </div>
+            <div class="scan-row srow-aeo" id="sr-aeo">
+              <div class="scan-row-icon">🤖</div>
               <div class="scan-row-info">
-                <div class="scan-row-name">Microsoft Copilot</div>
-                <div class="scan-row-detail" id="det-copilot">ожидание...</div>
+                <div class="scan-row-name">AEO оптимизация</div>
+                <div class="scan-row-detail" id="det-aeo">ожидание...</div>
               </div>
-              <div class="scan-row-state" id="st-copilot"><span class="state-wait">—</span></div>
+              <div class="scan-row-state" id="st-aeo"><span class="state-wait">—</span></div>
             </div>
-            <div class="scan-row srow-perplexity" id="sr-perplexity">
-              <div class="scan-row-icon">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zM12 4.2l7.5 3.75L12 11.7 4.5 7.95 12 4.2zM4 9.5l7 3.5v7l-7-3.5v-7zm9 10.5v-7l7-3.5v7l-7 3.5z" fill="#20B2AA"/></svg>
-              </div>
+            <div class="scan-row srow-geo" id="sr-geo">
+              <div class="scan-row-icon">📍</div>
               <div class="scan-row-info">
-                <div class="scan-row-name">Perplexity AI</div>
-                <div class="scan-row-detail" id="det-perplexity">ожидание...</div>
+                <div class="scan-row-name">GEO локация</div>
+                <div class="scan-row-detail" id="det-geo">ожидание...</div>
               </div>
-              <div class="scan-row-state" id="st-perplexity"><span class="state-wait">—</span></div>
+              <div class="scan-row-state" id="st-geo"><span class="state-wait">—</span></div>
             </div>
-            <div class="scan-row srow-grok" id="sr-grok">
-              <div class="scan-row-icon">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#1a1a1a"/></svg>
-              </div>
+            <div class="scan-row srow-trackers" id="sr-trackers">
+              <div class="scan-row-icon">🍪</div>
               <div class="scan-row-info">
-                <div class="scan-row-name">Grok (xAI)</div>
-                <div class="scan-row-detail" id="det-grok">ожидание...</div>
+                <div class="scan-row-name">Счетчики и Cookie</div>
+                <div class="scan-row-detail" id="det-trackers">ожидание...</div>
               </div>
-              <div class="scan-row-state" id="st-grok"><span class="state-wait">—</span></div>
+              <div class="scan-row-state" id="st-trackers"><span class="state-wait">—</span></div>
+            </div>
+            <div class="scan-row srow-ai-ready" id="sr-ai-ready">
+              <div class="scan-row-icon">✨</div>
+              <div class="scan-row-info">
+                <div class="scan-row-name">AI-готовность</div>
+                <div class="scan-row-detail" id="det-ai-ready">ожидание...</div>
+              </div>
+              <div class="scan-row-state" id="st-ai-ready"><span class="state-wait">—</span></div>
             </div>
           </div>
           <div class="scan-log" id="scan-log">
@@ -864,165 +861,164 @@
           <!-- Overview -->
           <div class="report-overview">
             <div class="ov-cell">
-              <div class="ov-label">Упоминаний найдено</div>
-              <div class="ov-val green">4 / 6</div>
-              <div class="ov-sub">нейросети</div>
+              <div class="ov-label">SEO-ошибок</div>
+              <div class="ov-val amber" id="res-seo-errors">3</div>
+              <div class="ov-sub">требуют внимания</div>
             </div>
             <div class="ov-cell">
-              <div class="ov-label">Индекс видимости</div>
-              <div class="ov-val">74</div>
+              <div class="ov-label">Schema.org</div>
+              <div class="ov-val green" id="res-schema-status">OK</div>
+              <div class="ov-sub">разметка найдена</div>
+            </div>
+            <div class="ov-cell">
+              <div class="ov-label">AEO готовность</div>
+              <div class="ov-val" id="res-aeo-score">78</div>
               <div class="ov-sub">из 100</div>
             </div>
             <div class="ov-cell">
-              <div class="ov-label">Тональность</div>
-              <div class="ov-val green">Позитив</div>
-              <div class="ov-sub">преобладающая</div>
-            </div>
-            <div class="ov-cell">
-              <div class="ov-label">Уровень доверия</div>
-              <div class="ov-val amber">Средний</div>
-              <div class="ov-sub">требует работы</div>
+              <div class="ov-label">GEO данные</div>
+              <div class="ov-val green" id="res-geo-status">Найдены</div>
+              <div class="ov-sub">координаты есть</div>
             </div>
           </div>
 
-          <!-- LLM rows -->
+          <!-- Analysis results -->
           <div class="llm-section">
-            <div class="llm-section-title">Результаты по нейросетям</div>
+            <div class="llm-section-title">Результаты проверки</div>
             <div class="llm-rows">
 
               <div class="llm-row">
-                <div class="llm-logo">
-                  <svg viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-6.211-3.424 10.079 10.079 0 0 0-10.833 4.943 9.964 9.964 0 0 0-3.834 6.486 10.08 10.08 0 0 0-3.406 9.405 9.964 9.964 0 0 0 6.582 7.381 10.079 10.079 0 0 0 10.258 2.713 9.963 9.963 0 0 0 6.826 3.075 10.079 10.079 0 0 0 9.637-6.977 9.963 9.963 0 0 0 3.821-6.383 10.08 10.08 0 0 0-1.129-4.201zM22.498 37.886a7.474 7.474 0 0 1-4.799-1.735c.061-.033.168-.091.237-.134l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.49 7.496zM6.392 31.006a7.471 7.471 0 0 1-.894-5.023c.06.036.162.099.237.141l7.964 4.6a1.297 1.297 0 0 0 1.308 0l9.724-5.614v3.888a.12.12 0 0 1-.048.103l-8.051 4.649a7.504 7.504 0 0 1-10.24-2.744zM4.297 13.62A7.469 7.469 0 0 1 8.2 10.333c0 .068-.004.19-.004.274v9.201a1.294 1.294 0 0 0 .654 1.132l9.723 5.614-3.366 1.944a.12.12 0 0 1-.114.012L7.044 23.86a7.504 7.504 0 0 1-2.747-10.24zm27.658 6.437l-9.724-5.615 3.367-1.943a.121.121 0 0 1 .114-.012l8.048 4.648a7.498 7.498 0 0 1-1.158 13.528v-9.476a1.293 1.293 0 0 0-.647-1.13zm3.35-5.043c-.059-.037-.162-.099-.236-.141l-7.965-4.6a1.298 1.298 0 0 0-1.308 0l-9.723 5.614v-3.888a.12.12 0 0 1 .048-.103l8.05-4.645a7.497 7.497 0 0 1 11.135 7.763zm-21.063 6.929l-3.367-1.944a.12.12 0 0 1-.065-.092v-9.299a7.497 7.497 0 0 1 12.293-5.756 6.94 6.94 0 0 0-.236.134l-7.965 4.6a1.294 1.294 0 0 0-.654 1.132l-.006 11.225zm1.829-3.943l4.33-2.501 4.332 2.497v4.998l-4.330 2.500-4.332-2.500V18z" fill="#10A37F"/></svg>
-                </div>
-                <div style="flex:0 0 130px">
-                  <div class="llm-name">ChatGPT</div>
-                  <div class="llm-model">GPT-4o</div>
+                <div class="llm-logo">🕸️</div>
+                <div style="flex:0 0 140px">
+                  <div class="llm-name">Сканирование сайта</div>
+                  <div class="llm-model">Crawl анализ</div>
                 </div>
                 <div class="llm-bar-wrap">
                   <div class="llm-bar-track">
-                    <div class="llm-bar-fill" style="width:82%;background:#10A37F"></div>
+                    <div class="llm-bar-fill" style="width:95%;background:#10A37F"></div>
                   </div>
-                  <div class="llm-bar-label"><span>Упоминаемость</span><span>82%</span></div>
+                  <div class="llm-bar-label"><span>Доступность</span><span>95%</span></div>
+                </div>
+                <span class="llm-badge badge-ok">OK</span>
+              </div>
+
+              <div class="llm-row">
+                <div class="llm-logo">📊</div>
+                <div style="flex:0 0 140px">
+                  <div class="llm-name">SEO-аудит</div>
+                  <div class="llm-model">On-page анализ</div>
+                </div>
+                <div class="llm-bar-wrap">
+                  <div class="llm-bar-track">
+                    <div class="llm-bar-fill" style="width:72%;background:#4285F4"></div>
+                  </div>
+                  <div class="llm-bar-label"><span>Оптимизация</span><span>72%</span></div>
+                </div>
+                <span class="llm-badge badge-partial">3 ошибки</span>
+              </div>
+
+              <div class="llm-row">
+                <div class="llm-logo">🏷️</div>
+                <div style="flex:0 0 140px">
+                  <div class="llm-name">Микроразметка</div>
+                  <div class="llm-model">Schema.org JSON-LD</div>
+                </div>
+                <div class="llm-bar-wrap">
+                  <div class="llm-bar-track">
+                    <div class="llm-bar-fill" style="width:88%;background:#CC785C"></div>
+                  </div>
+                  <div class="llm-bar-label"><span>Валидность</span><span>88%</span></div>
                 </div>
                 <span class="llm-badge badge-ok">Найдено</span>
               </div>
 
               <div class="llm-row">
-                <div class="llm-logo">
-                  <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 28C14 26.0633 13.6267 24.2433 12.88 22.54C12.1567 20.8367 11.165 19.355 9.905 18.095C8.645 16.835 7.16333 15.8433 5.46 15.12C3.75667 14.3733 1.93667 14 0 14C1.93667 14 3.75667 13.6383 5.46 12.915C7.16333 12.1683 8.645 11.165 9.905 9.905C11.165 8.645 12.1567 7.16333 12.88 5.46C13.6267 3.75667 14 1.93667 14 0C14 1.93667 14.3617 3.75667 15.085 5.46C15.8317 7.16333 16.835 8.645 18.095 9.905C19.355 11.165 20.8367 12.1683 22.54 12.915C24.2433 13.6383 26.0633 14 28 14C26.0633 14 24.2433 14.3733 22.54 15.12C20.8367 15.8433 19.355 16.835 18.095 18.095C16.835 19.355 15.8317 20.8367 15.085 22.54C14.3617 24.2433 14 26.0633 14 28Z" fill="#4285F4"/></svg>
-                </div>
-                <div style="flex:0 0 130px">
-                  <div class="llm-name">Gemini</div>
-                  <div class="llm-model">Gemini 1.5 Pro</div>
+                <div class="llm-logo">🤖</div>
+                <div style="flex:0 0 140px">
+                  <div class="llm-name">AEO оптимизация</div>
+                  <div class="llm-model">Answer Engine</div>
                 </div>
                 <div class="llm-bar-wrap">
                   <div class="llm-bar-track">
-                    <div class="llm-bar-fill" style="width:67%;background:#4285F4"></div>
+                    <div class="llm-bar-fill" style="width:65%;background:#0078D4"></div>
                   </div>
-                  <div class="llm-bar-label"><span>Упоминаемость</span><span>67%</span></div>
+                  <div class="llm-bar-label"><span>Готовность</span><span>65%</span></div>
                 </div>
-                <span class="llm-badge badge-ok">Найдено</span>
+                <span class="llm-badge badge-partial">Требует доработки</span>
               </div>
 
               <div class="llm-row">
-                <div class="llm-logo">
-                  <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.93 7.058C18.195 7.058 14 10.695 14 15.984c0 2.793 1.19 4.85 3.094 6.301L10.12 38.942h5.463l1.596-4.434h11.396l1.596 4.434h5.463L28.66 22.285c1.904-1.452 3.094-3.508 3.094-6.301 0-5.289-4.195-8.926-8.823-8.926zm0 4.434c2.52 0 4.434 1.915 4.434 4.492 0 2.578-1.913 4.493-4.434 4.493-2.52 0-4.433-1.915-4.433-4.493 0-2.577 1.912-4.492 4.433-4.492zm-3.834 13.37h7.668l-3.834 10.656-3.834-10.655z" fill="#CC785C"/></svg>
-                </div>
-                <div style="flex:0 0 130px">
-                  <div class="llm-name">Claude</div>
-                  <div class="llm-model">Claude 3.5 Sonnet</div>
+                <div class="llm-logo">📍</div>
+                <div style="flex:0 0 140px">
+                  <div class="llm-name">GEO локация</div>
+                  <div class="llm-model">Geo tags + NAP</div>
                 </div>
                 <div class="llm-bar-wrap">
                   <div class="llm-bar-track">
-                    <div class="llm-bar-fill" style="width:41%;background:#CC785C"></div>
+                    <div class="llm-bar-fill" style="width:90%;background:#20B2AA"></div>
                   </div>
-                  <div class="llm-bar-label"><span>Упоминаемость</span><span>41%</span></div>
+                  <div class="llm-bar-label"><span>Наличие</span><span>90%</span></div>
                 </div>
-                <span class="llm-badge badge-partial">Частично</span>
+                <span class="llm-badge badge-ok">OK</span>
               </div>
 
               <div class="llm-row">
-                <div class="llm-logo">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.5 14.5h-9a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5H9v-5h-.5a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h1v-5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H17V15h.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5zM12 8a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="#0078D4"/></svg>
-                </div>
-                <div style="flex:0 0 130px">
-                  <div class="llm-name">Copilot</div>
-                  <div class="llm-model">GPT-4 Turbo</div>
+                <div class="llm-logo">🍪</div>
+                <div style="flex:0 0 140px">
+                  <div class="llm-name">Счетчики и Cookie</div>
+                  <div class="llm-model">GDPR / Consent</div>
                 </div>
                 <div class="llm-bar-wrap">
                   <div class="llm-bar-track">
-                    <div class="llm-bar-fill" style="width:78%;background:#0078D4"></div>
+                    <div class="llm-bar-fill" style="width:45%;background:#D97706"></div>
                   </div>
-                  <div class="llm-bar-label"><span>Упоминаемость</span><span>78%</span></div>
+                  <div class="llm-bar-label"><span>Соответствие</span><span>45%</span></div>
                 </div>
-                <span class="llm-badge badge-ok">Найдено</span>
+                <span class="llm-badge badge-no">Нарушение</span>
               </div>
 
               <div class="llm-row">
-                <div class="llm-logo">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zM12 4.2l7.5 3.75L12 11.7 4.5 7.95 12 4.2zM4 9.5l7 3.5v7l-7-3.5v-7zm9 10.5v-7l7-3.5v7l-7 3.5z" fill="#20B2AA"/></svg>
-                </div>
-                <div style="flex:0 0 130px">
-                  <div class="llm-name">Perplexity</div>
-                  <div class="llm-model">Sonar Large</div>
+                <div class="llm-logo">✨</div>
+                <div style="flex:0 0 140px">
+                  <div class="llm-name">AI-готовность</div>
+                  <div class="llm-model">LLM Ready Score</div>
                 </div>
                 <div class="llm-bar-wrap">
                   <div class="llm-bar-track">
-                    <div class="llm-bar-fill" style="width:59%;background:#20B2AA"></div>
+                    <div class="llm-bar-fill" style="width:71%;background:#333"></div>
                   </div>
-                  <div class="llm-bar-label"><span>Упоминаемость</span><span>59%</span></div>
+                  <div class="llm-bar-label"><span>Общий балл</span><span>71/100</span></div>
                 </div>
-                <span class="llm-badge badge-ok">Найдено</span>
-              </div>
-
-              <div class="llm-row">
-                <div class="llm-logo">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#1a1a1a"/></svg>
-                </div>
-                <div style="flex:0 0 130px">
-                  <div class="llm-name">Grok</div>
-                  <div class="llm-model">Grok-2</div>
-                </div>
-                <div class="llm-bar-wrap">
-                  <div class="llm-bar-track">
-                    <div class="llm-bar-fill" style="width:18%;background:#555"></div>
-                  </div>
-                  <div class="llm-bar-label"><span>Упоминаемость</span><span>18%</span></div>
-                </div>
-                <span class="llm-badge badge-no">Не найдено</span>
+                <span class="llm-badge badge-partial">Хорошо</span>
               </div>
 
             </div>
           </div>
 
-          <!-- LOCKED: Детальный анализ тональности -->
+          <!-- LOCKED: Рекомендации по улучшению -->
           <div class="locked-section">
-            <div class="llm-section-title">Детальный анализ тональности по нейросетям</div>
+            <div class="llm-section-title">Рекомендации по улучшению</div>
             <div class="locked-blur">
-              <div class="blur-rows">
-                <div class="blur-row">
-                  <div class="blur-block" style="width:36px;height:36px;border-radius:9px;flex-shrink:0"></div>
-                  <div style="flex:1;display:flex;flex-direction:column;gap:6px">
-                    <div class="blur-block" style="width:60%"></div>
-                    <div class="blur-block" style="width:40%;opacity:.6"></div>
-                  </div>
-                  <div class="blur-block" style="width:80px;height:24px;border-radius:50px"></div>
+              <div class="rec-rows">
+                <div class="rec-row">
+                  <div class="rec-row-title">🔧 Исправить SEO-ошибки (3 шт)</div>
+                  <div class="rec-row-text">Добавьте alt-тексты к изображениям, оптимизируйте title и description, добавьте недостающие H2 заголовки для лучшей структуры контента.</div>
                 </div>
-                <div class="blur-row">
-                  <div class="blur-block" style="width:36px;height:36px;border-radius:9px;flex-shrink:0"></div>
-                  <div style="flex:1;display:flex;flex-direction:column;gap:6px">
-                    <div class="blur-block" style="width:50%"></div>
-                    <div class="blur-block" style="width:35%;opacity:.6"></div>
-                  </div>
-                  <div class="blur-block" style="width:80px;height:24px;border-radius:50px"></div>
+                <div class="rec-row">
+                  <div class="rec-row-title">🤖 Улучшить AEO оптимизацию</div>
+                  <div class="rec-row-text">Добавьте FAQ-разметку Schema.org, используйте структурированные ответы на частые вопросы, оптимизируйте контент под голосовой поиск.</div>
                 </div>
-                <div class="blur-row">
-                  <div class="blur-block" style="width:36px;height:36px;border-radius:9px;flex-shrink:0"></div>
-                  <div style="flex:1;display:flex;flex-direction:column;gap:6px">
-                    <div class="blur-block" style="width:70%"></div>
-                    <div class="blur-block" style="width:45%;opacity:.6"></div>
-                  </div>
-                  <div class="blur-block" style="width:80px;height:24px;border-radius:50px"></div>
+                <div class="rec-row">
+                  <div class="rec-row-title">🍪 Настроить cookie consent</div>
+                  <div class="rec-row-text">Добавьте banner с запросом согласия на использование cookies, настройте интеграцию с Google Analytics и другими счетчиками через consent mechanism.</div>
+                </div>
+                <div class="rec-row">
+                  <div class="rec-row-title">📍 Расширить GEO данные</div>
+                  <div class="rec-row-text">Добавьте подробные NAP данные (Name, Address, Phone), укажите координаты в Geo meta tags, интегрируйте карту Google Maps.</div>
+                </div>
+                <div class="rec-row">
+                  <div class="rec-row-title">✨ AI-оптимизация контента</div>
+                  <div class="rec-row-text">Используйте семантическую HTML разметку, добавьте больше структурированных данных, создайте контент отвечающий на конкретные вопросы пользователей.</div>
                 </div>
               </div>
             </div>
@@ -1104,14 +1100,29 @@
             </div>
           </div>
 
-          <!-- LOCKED: Рекомендации -->
+          <!-- LOCKED: Рекомендации (удалить дубликат) -->
           <div class="locked-section" style="border-bottom:none">
-            <div class="llm-section-title">Рекомендации по улучшению AI-видимости</div>
+            <div class="llm-section-title">Продвинутые рекомендации по AI-оптимизации</div>
             <div class="locked-blur">
               <div class="rec-rows">
                 <div class="rec-row">
                   <div class="rec-row-title">Структурируйте контент под LLM-парсинг</div>
-                  <div class="rec-row-text">Нейросети лучше усваивают данные из чётко структурированных страниц с заголовками H1–H3, Schema.org разметкой и FAQ-блоками. Ваши страницы услуг требуют переработки...</div>
+                  <div class="rec-row-text">Нейросети лучше усваивают данные из чётко структурированных страниц с заголовками H1–H3, Schema.org разметкой и FAQ-блоками...</div>
+                </div>
+                <div class="rec-row">
+                  <div class="rec-row-title">Оптимизируйте для Answer Engine</div>
+                  <div class="rec-row-text">Используйте формат вопрос-ответ, добавляйте краткие определения в начале разделов, создавайте контент который может быть использован как прямой ответ...</div>
+                </div>
+              </div>
+            </div>
+            <div class="locked-overlay">
+              <div class="locked-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Доступно в тарифе «Премиум»
+              </div>
+              <div class="locked-plan">Расширенные стратегии AI-оптимизации</div>
+            </div>
+          </div>
                 </div>
                 <div class="rec-row">
                   <div class="rec-row-title">Добавьте E-E-A-T сигналы на сайт</div>
@@ -1413,57 +1424,73 @@ document.getElementById('site-url').addEventListener('paste', function(e) {
 /* ── Scan logic ── */
 const SCAN_STEPS = [
   {
-    id: 'chatgpt', name: 'ChatGPT',
+    id: 'crawl', name: 'Сканирование сайта',
+    icon: '🕸️',
     details: [
-      'Инициализация API-запроса к OpenAI...',
-      'Запрос промпта к GPT-4o...',
-      'Анализ контекста упоминаний...',
-      'Извлечение частотности и тональности...',
+      'Подключение к домену...',
+      'Загрузка главной страницы...',
+      'Анализ HTML-структуры...',
+      'Извлечение метаданных...',
     ]
   },
   {
-    id: 'gemini', name: 'Gemini',
+    id: 'seo', name: 'SEO-аудит',
+    icon: '📊',
     details: [
-      'Подключение к Google DeepMind API...',
-      'Запрос к Gemini 1.5 Pro...',
-      'Парсинг упоминаний домена...',
-      'Оценка индекса достоверности...',
+      'Проверка title и description...',
+      'Анализ заголовков H1-H6...',
+      'Проверка alt-текстов изображений...',
+      'Оценка скорости загрузки...',
     ]
   },
   {
-    id: 'claude', name: 'Claude',
+    id: 'schema', name: 'Микроразметка Schema.org',
+    icon: '🏷️',
     details: [
-      'Соединение с Anthropic API...',
-      'Запрос к Claude 3.5 Sonnet...',
-      'Анализ базы знаний Anthropic...',
-      'Проверка тональности ответов...',
+      'Поиск JSON-LD разметки...',
+      'Проверка Organization schema...',
+      'Анализ Product/Service schema...',
+      'Валидация структуры...',
     ]
   },
   {
-    id: 'copilot', name: 'Microsoft Copilot',
+    id: 'aeo', name: 'AEO оптимизация',
+    icon: '🤖',
     details: [
-      'Подключение к Microsoft Azure OpenAI...',
-      'Формирование запроса к Copilot...',
-      'Сканирование веб-индекса Bing...',
-      'Анализ AI-ответов с источниками...',
+      'Анализ структурированных ответов...',
+      'Проверка FAQ-разметки...',
+      'Оптимизация под голосовой поиск...',
+      'Проверка snippet-готовности...',
     ]
   },
   {
-    id: 'perplexity', name: 'Perplexity AI',
+    id: 'geo', name: 'GEO локация',
+    icon: '📍',
     details: [
-      'Инициализация Perplexity Sonar API...',
-      'Запрос с веб-поиском в реальном времени...',
-      'Извлечение источников и цитирований...',
-      'Проверка ранга в AI-поисковой выдаче...',
+      'Проверка Geo meta tags...',
+      'Анализ адресных данных...',
+      'Проверка Google Maps интеграции...',
+      'Валидация NAP данных...',
     ]
   },
   {
-    id: 'grok', name: 'Grok (xAI)',
+    id: 'trackers', name: 'Счетчики и Cookie',
+    icon: '🍪',
     details: [
-      'Подключение к xAI API...',
-      'Запрос к Grok-2...',
-      'Анализ базы данных X (Twitter)...',
-      'Проверка реального времени обучения...',
+      'Поиск аналитических скриптов...',
+      'Проверка cookie-banner...',
+      'Анализ consent-механизма...',
+      'Верификация GDPR соответствия...',
+    ]
+  },
+  {
+    id: 'ai_ready', name: 'AI-готовность',
+    icon: '✨',
+    details: [
+      'Проверка robots.txt для AI-ботов...',
+      'Анализ AI-оптимизации контента...',
+      'Оценка semantic HTML...',
+      'Формирование рекомендаций...',
     ]
   }
 ];
@@ -1486,8 +1513,8 @@ function setLog(text) {
   log.innerHTML = '<span class="log-line">' + text + '</span>';
 }
 function setCounter(done) {
-  document.getElementById('scan-counter').textContent = done + ' / 6';
-  document.getElementById('prog-fill').style.width = Math.round((done / 6) * 100) + '%';
+  document.getElementById('scan-counter').textContent = done + ' / 7';
+  document.getElementById('prog-fill').style.width = Math.round((done / 7) * 100) + '%';
 }
 
 function startAnalysis(e) {
@@ -1502,7 +1529,7 @@ function startAnalysis(e) {
   resultsEl.style.display = 'none';
   SCAN_STEPS.forEach(s => { setRowState(s.id, 'wait'); setRowDetail(s.id, 'ожидание...'); });
   document.getElementById('prog-fill').style.width = '0%';
-  document.getElementById('scan-counter').textContent = '0 / 6';
+  document.getElementById('scan-counter').textContent = '0 / 7';
   setLog('Инициализация сканирования...');
 
   statusEl.style.display = 'block';
@@ -1539,13 +1566,13 @@ function startAnalysis(e) {
         setRowDetail(step.id, step.details[detailIdx]);
         setLog('[ ' + step.name + ' ] ' + step.details[detailIdx]);
         detailIdx++;
-        scanTimer = setTimeout(runDetail, 700 + Math.random() * 400);
+        scanTimer = setTimeout(runDetail, 900 + Math.random() * 300);
       } else {
         setRowState(step.id, 'done');
         setRowDetail(step.id, 'анализ завершён');
         setCounter(stepIdx + 1);
         stepIdx++;
-        scanTimer = setTimeout(runStep, 500);
+        scanTimer = setTimeout(runStep, 400);
       }
     }
     runDetail();
@@ -1561,7 +1588,7 @@ function resetForm() {
   if (scanTimer) clearTimeout(scanTimer);
   SCAN_STEPS.forEach(s => { setRowState(s.id, 'wait'); setRowDetail(s.id, 'ожидание...'); });
   document.getElementById('prog-fill').style.width = '0%';
-  document.getElementById('scan-counter').textContent = '0 / 6';
+  document.getElementById('scan-counter').textContent = '0 / 7';
   document.getElementById('checker').scrollIntoView({ behavior: 'smooth' });
   setTimeout(() => document.getElementById('site-url').focus(), 600);
 }
