@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuroScan — Как ваш бизнес выглядит в нейросетях | Крым</title>
+  <meta name="description" content="Узнайте, что нейросети говорят о вашем бизнесе. Анализ и мониторинг упоминаний сайта в ChatGPT, Gemini и Claude для бизнеса в Крыму — Симферополь, Севастополь, Ялта, Евпатория.">
+  <meta name="keywords" content="продвижение бизнеса Крым, проверка сайта Крым, анализ сайта Крым, нейросети Крым, AI продвижение Крым, Симферополь, Севастополь, Ялта, Евпатория, мониторинг нейросетей, видимость бизнеса">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="NeuroScan — Анализ бизнеса в нейросетях | Крым">
+  <meta property="og:description" content="Проверьте, как ChatGPT, Gemini и Claude отзываются о вашем сайте.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:       #F7F6F3;
+      --bg2:      #EEECEA;
+      --surface:  #FFFFFF;
+      --border:   #E2DFD9;
+      --border2:  #D0CCC4;
+      --ink:      #17161A;
+      --ink2:     #5A5762;
+      --ink3:     #9A9599;
+      --accent:   #1A1A1A;
+      --blue:     #2563EB;
+      --green:    #16A34A;
+      --amber:    #D97706;
+      --red:      #DC2626;
+      --radius:   12px;
+      --radius-lg:20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--ink); color: var(--bg); }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg2); }
+    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+    .container { max-width: 100%; margin: 0 auto; padding: 0 48px; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      padding: 0;
+      background: rgba(247,246,243,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background .3s;
+    }
+    .nav-inner {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .logo {
+      font-size: 1.05rem; font-weight: 700;
+      letter-spacing: -.3px; color: var(--ink);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .logo-mark {
+      width: 28px; height: 28px;
+      background: var(--ink);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-mark svg { width: 16px; height: 16px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: var(--ink2); font-size: .875rem; font-weight: 500;
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-pill {
+      background: var(--ink); color: var(--bg);
+      padding: 8px 18px; border-radius: 50px;
+      font-size: .82rem; font-weight: 600;
+      text-decoration: none;
+      transition: opacity .2s, transform .2s;
+      white-space: nowrap;
+    }
+    .nav-pill:hover { opacity: .82; transform: translateY(-1px); color: var(--bg); }
+    @media(max-width:768px) { .nav-links { display: none; } }
+
+    /* ─── HERO ─── */
+    #hero {
+      padding: 140px 0 80px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: .75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--ink2);
+      border: 1px solid var(--border2);
+      background: var(--surface);
+      padding: 5px 13px; border-radius: 50px;
+      margin-bottom: 28px;
+    }
+    .hero-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green);
+      animation: blink 2s ease infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -2.5px;
+      color: var(--ink);
+      max-width: 760px;
+      margin-bottom: 22px;
+    }
+    h1 em { font-style: italic; font-weight: 300; color: var(--ink2); }
+
+    .hero-desc {
+      font-size: 1.05rem; color: var(--ink2);
+      max-width: 540px; margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 26px; border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-size: .9rem; font-weight: 600;
+      cursor: pointer; border: none; text-decoration: none;
+      transition: transform .2s, box-shadow .2s, opacity .2s;
+    }
+    .btn-dark {
+      background: var(--ink); color: var(--bg);
+    }
+    .btn-dark:hover { opacity: .85; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+    .btn-outline {
+      background: transparent; color: var(--ink);
+      border: 1px solid var(--border2);
+    }
+    .btn-outline:hover { border-color: var(--ink2); transform: translateY(-2px); }
+    .btn:active { transform: translateY(0) !important; }
+
+    .hero-metrics {
+      display: flex; gap: 0;
+      margin-top: 64px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .hero-metric {
+      flex: 1; padding: 24px 28px;
+      border-right: 1px solid var(--border);
+    }
+    .hero-metric:last-child { border-right: none; }
+    .hero-metric-val {
+      font-size: 2rem; font-weight: 800;
+      letter-spacing: -1.5px; color: var(--ink);
+      line-height: 1; margin-bottom: 4px;
+    }
+    .hero-metric-label { font-size: .8rem; color: var(--ink3); font-weight: 500; }
+    @media(max-width:600px) {
+      .hero-metrics { flex-direction: column; }
+      .hero-metric { border-right: none; border-bottom: 1px solid var(--border); }
+      .hero-metric:last-child { border-bottom: none; }
+    }
+
+    /* ─── SECTION COMMON ─── */
+    section { padding: 90px 0; }
+    .section-label {
+      font-size: .72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .12em;
+      color: var(--ink3); margin-bottom: 14px;
+    }
+    h2 {
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      font-weight: 800; letter-spacing: -1.5px;
+      color: var(--ink); line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    h2 em { font-style: italic; font-weight: 300; color: var(--ink2); }
+    .section-desc {
+      font-size: .97rem; color: var(--ink2);
+      max-width: 480px; line-height: 1.7;
+      margin-bottom: 52px;
+    }
+
+    /* ─── CHECKER ─── */
+    #checker { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .checker-box {
+      max-width: 720px; margin: 0 auto;
+    }
+    .checker-box h2 { text-align: center; }
+    .checker-box .section-label { text-align: center; }
+    .checker-box .section-desc { max-width: 100%; text-align: center; margin: 0 auto 40px; }
+
+    .input-wrap {
+      display: flex; gap: 10px;
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: 50px;
+      padding: 6px 6px 6px 20px;
+      align-items: center;
+      transition: border-color .25s, box-shadow .25s;
+    }
+    .input-wrap:focus-within {
+      border-color: var(--ink);
+      box-shadow: 0 0 0 3px rgba(23,22,26,0.08);
+    }
+    .input-prefix {
+      font-size: .9rem; color: var(--ink3);
+      font-family: 'DM Mono', monospace;
+      white-space: nowrap; user-select: none;
+    }
+    .url-input {
+      flex: 1; border: none; background: transparent;
+      font-family: 'DM Mono', monospace;
+      font-size: .9rem; color: var(--ink);
+      outline: none; min-width: 0;
+    }
+    .url-input::placeholder { color: var(--ink3); }
+
+    /* ─── LOADER ─── */
+    #analysis-status { display: none; margin-top: 40px; }
+    .scan-panel {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--surface);
+    }
+    .scan-header {
+      padding: 18px 24px;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .scan-spinner {
+      width: 18px; height: 18px;
+      border: 2px solid var(--border2);
+      border-top-color: var(--ink);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .scan-title { font-size: .88rem; font-weight: 600; color: var(--ink); }
+    .scan-sub { font-size: .78rem; color: var(--ink3); margin-left: auto; font-family: 'DM Mono', monospace; }
+
+    .prog-wrap { padding: 0 24px; }
+    .prog-track {
+      height: 2px; background: var(--border);
+      margin: 0; overflow: hidden;
+    }
+    .prog-fill {
+      height: 100%; background: var(--ink);
+      width: 0; transition: width .5s cubic-bezier(.4,0,.2,1);
+    }
+
+    .scan-body { padding: 8px 0; }
+    .scan-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 13px 24px;
+      border-bottom: 1px solid var(--border);
+      transition: background .2s;
+    }
+    .scan-row:last-child { border-bottom: none; }
+    .scan-row.s-done { background: rgba(22,163,74,.03); }
+    .scan-row.s-active { background: rgba(23,22,26,.03); }
+
+    .scan-row-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .scan-row-icon svg, .scan-row-icon img { width: 18px; height: 18px; }
+
+    .scan-row-info { flex: 1; }
+    .scan-row-name { font-size: .88rem; font-weight: 600; color: var(--ink); }
+    .scan-row-detail { font-size: .75rem; color: var(--ink3); margin-top: 1px; font-family: 'DM Mono', monospace; }
+    .scan-row-state { flex-shrink: 0; }
+
+    .state-wait { color: var(--ink3); font-size: .75rem; }
+    .state-spin {
+      width: 14px; height: 14px;
+      border: 1.5px solid var(--border2);
+      border-top-color: var(--ink);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      display: inline-block;
+    }
+    .state-ok {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: .75rem; font-weight: 600; color: var(--green);
+    }
+    .state-ok::before { content: '✓'; }
+
+    .scan-log {
+      padding: 12px 24px;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      font-family: 'DM Mono', monospace;
+      font-size: .72rem; color: var(--ink3);
+      min-height: 44px;
+    }
+    .log-line { animation: fade-in .3s ease; }
+    @keyframes fade-in { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+
+    /* ─── RESULTS ─── */
+    #results-output { display: none; margin-top: 40px; }
+
+    .report-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .report-header {
+      padding: 24px 28px;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .report-title { font-size: 1rem; font-weight: 700; color: var(--ink); }
+    .report-url { font-family: 'DM Mono', monospace; font-size: .8rem; color: var(--ink2); margin-top: 2px; }
+    .status-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 50px;
+      font-size: .78rem; font-weight: 700;
+    }
+    .chip-green { background: rgba(22,163,74,.1); color: var(--green); border: 1px solid rgba(22,163,74,.2); }
+    .chip-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: blink 2s infinite; }
+
+    /* overview row */
+    .report-overview {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid var(--border);
+    }
+    @media(max-width:640px) { .report-overview { grid-template-columns: repeat(2,1fr); } }
+    .ov-cell {
+      padding: 22px 24px;
+      border-right: 1px solid var(--border);
+    }
+    .ov-cell:last-child { border-right: none; }
+    .ov-label { font-size: .72rem; color: var(--ink3); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+    .ov-val { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; color: var(--ink); }
+    .ov-val.green { color: var(--green); }
+    .ov-val.amber { color: var(--amber); }
+    .ov-val.red { color: var(--red); }
+    .ov-sub { font-size: .72rem; color: var(--ink3); margin-top: 2px; }
+
+    /* LLM rows */
+    .llm-section { padding: 24px 28px 0; }
+    .llm-section-title {
+      font-size: .72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--ink3); margin-bottom: 16px;
+    }
+    .llm-rows { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .llm-row {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+    }
+    .llm-logo {
+      width: 36px; height: 36px; border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .llm-logo svg { width: 20px; height: 20px; }
+    .llm-name { font-weight: 600; font-size: .9rem; color: var(--ink); }
+    .llm-model { font-size: .72rem; color: var(--ink3); font-family: 'DM Mono', monospace; margin-top: 1px; }
+    .llm-bar-wrap { flex: 1; }
+    .llm-bar-track {
+      height: 5px; background: var(--border);
+      border-radius: 50px; overflow: hidden;
+    }
+    .llm-bar-fill { height: 100%; border-radius: 50px; transition: width 1s .5s ease; }
+    .llm-bar-label { font-size: .7rem; color: var(--ink3); margin-top: 4px; display: flex; justify-content: space-between; }
+    .llm-badge {
+      flex-shrink: 0; font-size: .75rem; font-weight: 700;
+      padding: 4px 12px; border-radius: 50px;
+    }
+    .badge-ok { background: rgba(22,163,74,.1); color: var(--green); }
+    .badge-partial { background: rgba(217,119,6,.1); color: var(--amber); }
+    .badge-no { background: rgba(220,38,38,.08); color: var(--red); }
+
+    /* blurred sections */
+    .report-divider { height: 1px; background: var(--border); margin: 0 0; }
+
+    .locked-section {
+      position: relative;
+      padding: 24px 28px;
+      border-top: 1px solid var(--border);
+    }
+    .locked-blur {
+      filter: blur(5px);
+      user-select: none;
+      pointer-events: none;
+    }
+    .locked-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      z-index: 2;
+    }
+    .locked-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--surface); border: 1px solid var(--border2);
+      border-radius: 50px; padding: 8px 18px;
+      font-size: .82rem; font-weight: 600; color: var(--ink);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .locked-badge svg { width: 14px; height: 14px; color: var(--ink2); }
+    .locked-plan { font-size: .75rem; color: var(--ink3); }
+
+    .blur-rows { display: flex; flex-direction: column; gap: 10px; }
+    .blur-row {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+      height: 64px;
+    }
+    .blur-block { height: 12px; border-radius: 6px; background: var(--border2); }
+
+    /* recommendations blurred */
+    .rec-rows { display: flex; flex-direction: column; gap: 8px; }
+    .rec-row {
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+    }
+    .rec-row-title { font-size: .85rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .rec-row-text { font-size: .8rem; color: var(--ink2); }
+
+    /* score chart */
+    .score-ring-wrap {
+      display: flex; align-items: center; gap: 28px;
+      flex-wrap: wrap;
+    }
+    .score-ring-svg { width: 80px; height: 80px; flex-shrink: 0; }
+    .score-ring-info h4 { font-size: 1.2rem; font-weight: 800; letter-spacing: -1px; color: var(--ink); }
+    .score-ring-info p { font-size: .82rem; color: var(--ink2); margin-top: 3px; }
+
+    .report-footer {
+      padding: 18px 28px;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+
+    /* ─── HOW IT WORKS ─── */
+    #how { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .how-layout {
+      display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start;
+    }
+    @media(max-width:768px) { .how-layout { grid-template-columns: 1fr; gap: 40px; } }
+    .how-steps { display: flex; flex-direction: column; gap: 0; }
+    .how-step {
+      display: flex; gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .how-step:first-child { padding-top: 0; }
+    .how-step:last-child { border-bottom: none; padding-bottom: 0; }
+    .how-step-num {
+      font-family: 'DM Mono', monospace;
+      font-size: .78rem; color: var(--ink3); flex-shrink: 0;
+      width: 20px; margin-top: 2px;
+    }
+    .how-step h3 { font-size: .95rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .how-step p { font-size: .85rem; color: var(--ink2); line-height: 1.65; }
+
+    /* ─── FEATURES ─── */
+    #features { background: var(--surface); }
+    .feat-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    @media(max-width:860px) { .feat-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:540px) { .feat-grid { grid-template-columns: 1fr; } }
+    .feat-cell {
+      background: var(--surface);
+      padding: 32px 28px;
+      transition: background .2s;
+    }
+    .feat-cell:hover { background: var(--bg2); }
+    .feat-icon {
+      width: 40px; height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      background: var(--bg);
+    }
+    .feat-icon svg { width: 18px; height: 18px; color: var(--ink2); }
+    .feat-cell h3 { font-size: .95rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .feat-cell p { font-size: .83rem; color: var(--ink2); line-height: 1.65; }
+
+    /* ─── PRICING ─── */
+    #pricing { background: var(--bg); }
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+    }
+    @media(max-width:860px) { .pricing-grid { grid-template-columns: 1fr; } }
+    .plan {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: flex; flex-direction: column; gap: 0;
+      position: relative;
+    }
+    .plan.featured {
+      border: 2px solid var(--ink);
+    }
+    .plan-tag {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--ink); color: var(--bg);
+      font-size: .68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em;
+      padding: 4px 14px; border-radius: 50px;
+      white-space: nowrap;
+    }
+    .plan-name { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--ink3); margin-bottom: 16px; }
+    .plan-price {
+      font-size: 2.6rem; font-weight: 800;
+      letter-spacing: -2px; color: var(--ink);
+      line-height: 1; margin-bottom: 4px;
+    }
+    .plan-price sup { font-size: 1.2rem; vertical-align: super; letter-spacing: 0; }
+    .plan-price-note { font-size: .78rem; color: var(--ink3); margin-bottom: 24px; }
+    .plan-sep { height: 1px; background: var(--border); margin-bottom: 24px; }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; margin-bottom: 28px; }
+    .plan-features li {
+      font-size: .85rem; color: var(--ink2);
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .plan-features li::before {
+      content: '—'; color: var(--ink3); flex-shrink: 0; font-size: .85rem;
+    }
+    .plan-features li.hi { color: var(--ink); font-weight: 500; }
+    .plan-features li.hi::before { content: '✓'; color: var(--green); font-weight: 700; }
+    .plan-btn {
+      display: block; text-align: center;
+      padding: 12px; border-radius: var(--radius);
+      font-size: .88rem; font-weight: 700;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform .2s, opacity .2s;
+    }
+    .plan-btn:hover { transform: translateY(-2px); }
+    .plan-btn-dark { background: var(--ink); color: var(--bg); }
+    .plan-btn-dark:hover { opacity: .85; }
+    .plan-btn-outline { background: transparent; border: 1px solid var(--border2); color: var(--ink); }
+    .plan-btn-outline:hover { border-color: var(--ink); }
+
+    /* ─── WHY ─── */
+    #why { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 20px;
+    }
+    @media(max-width:860px) { .why-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:480px) { .why-grid { grid-template-columns: 1fr; } }
+    .why-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: border-color .2s;
+    }
+    .why-card:hover { border-color: var(--border2); }
+    .why-card-num {
+      font-family: 'DM Mono', monospace;
+      font-size: .7rem; color: var(--ink3); margin-bottom: 18px;
+    }
+    .why-card h3 { font-size: .92rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .why-card p { font-size: .82rem; color: var(--ink2); line-height: 1.65; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink); color: var(--bg);
+      padding: 56px 0 32px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: 48px;
+      padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.1);
+      margin-bottom: 28px;
+    }
+    @media(max-width:700px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
+    .footer-logo {
+      font-size: 1rem; font-weight: 700;
+      color: var(--bg); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .footer-logo-mark {
+      width: 26px; height: 26px;
+      background: rgba(255,255,255,.12);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .footer-logo-mark svg { width: 14px; height: 14px; }
+    .footer-desc { font-size: .82rem; color: rgba(255,255,255,.45); line-height: 1.65; max-width: 240px; }
+    .footer-col h4 {
+      font-size: .68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .12em; color: rgba(255,255,255,.35); margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-col ul li a {
+      font-size: .85rem; color: rgba(255,255,255,.55);
+      text-decoration: none; transition: color .2s;
+    }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-bottom {
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    }
+    .footer-copy { font-size: .78rem; color: rgba(255,255,255,.3); }
+
+    /* ─── REVEAL ─── */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── LLM SVG LOGOS ─── */
+    /* ChatGPT */
+    .logo-chatgpt { color: #10A37F; }
+    /* Gemini */
+    .logo-gemini { color: #4285F4; }
+    /* Claude */
+    .logo-claude { color: #CC785C; }
+    /* Copilot / Bing */
+    .logo-copilot { color: #0078D4; }
+    /* Perplexity */
+    .logo-perplexity { color: #20B2AA; }
+    /* Grok */
+    .logo-grok { color: #333; }
+
+    /* scan row bg colors */
+    .srow-chatgpt .scan-row-icon { border-color: rgba(16,163,127,.2); }
+    .srow-gemini  .scan-row-icon { border-color: rgba(66,133,244,.2); }
+    .srow-claude  .scan-row-icon { border-color: rgba(204,120,92,.2); }
+    .srow-copilot .scan-row-icon { border-color: rgba(0,120,212,.2); }
+    .srow-perplexity .scan-row-icon { border-color: rgba(32,178,170,.2); }
+    .srow-grok .scan-row-icon { border-color: rgba(51,51,51,.2); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8" r="3" fill="white"/>
+          <circle cx="3" cy="3" r="1.5" fill="white" opacity=".5"/>
+          <circle cx="13" cy="3" r="1.5" fill="white" opacity=".5"/>
+          <circle cx="3" cy="13" r="1.5" fill="white" opacity=".5"/>
+          <circle cx="13" cy="13" r="1.5" fill="white" opacity=".5"/>
+          <line x1="5.2" y1="5.2" x2="3" y2="3" stroke="white" stroke-width="1" opacity=".4"/>
+          <line x1="10.8" y1="5.2" x2="13" y2="3" stroke="white" stroke-width="1" opacity=".4"/>
+          <line x1="5.2" y1="10.8" x2="3" y2="13" stroke="white" stroke-width="1" opacity=".4"/>
+          <line x1="10.8" y1="10.8" x2="13" y2="13" stroke="white" stroke-width="1" opacity=".4"/>
+        </svg>
+      </div>
+      NeuroScan
+    </a>
+    <ul class="nav-links">
+      <li><a href="#how">Как работает</a></li>
+      <li><a href="#features">Возможности</a></li>
+      <li><a href="#pricing">Тарифы</a></li>
+      <li><a href="#why">О нас</a></li>
+    </ul>
+    <a href="#checker" class="nav-pill">Проверить сайт →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-eyebrow">
+      <span class="hero-dot"></span>
+      Мониторинг · AI-видимость · Крым
+    </div>
+    <h1>Что нейросети<br>говорят о вашем<br><em>бизнесе?</em></h1>
+    <p class="hero-desc">Анализируем ChatGPT, Gemini, Claude, Copilot, Perplexity и Grok. Узнайте, как вас видит AI — и что нужно исправить.</p>
+    <div class="hero-actions">
+      <a href="#checker" class="btn btn-dark">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        Проверить сайт
+      </a>
+      <a href="#how" class="btn btn-outline">Как это работает</a>
+    </div>
+    <div class="hero-metrics reveal">
+      <div class="hero-metric">
+        <div class="hero-metric-val">6</div>
+        <div class="hero-metric-label">Нейросетей проверяем</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric-val">1 200+</div>
+        <div class="hero-metric-label">Сайтов проанализировано</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric-val">97%</div>
+        <div class="hero-metric-label">Точность данных</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric-val">Крым</div>
+        <div class="hero-metric-label">Симферополь · Ялта · Севастополь</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKER -->
+<section id="checker">
+  <div class="container">
+    <div class="checker-box">
+      <div class="section-label">Анализ сайта</div>
+      <h2>Введите адрес сайта</h2>
+      <p class="section-desc">Система запустит глубокую проверку присутствия вашего домена в шести ведущих нейросетях и сформирует отчёт.</p>
+
+      <form id="analysis-form" onsubmit="startAnalysis(event)">
+        <div class="input-wrap">
+          <span class="input-prefix">https://</span>
+          <input type="text" id="site-url" class="url-input" placeholder="example.com" autocomplete="off" required>
+          <button type="submit" class="btn btn-dark" style="border-radius:50px;padding:10px 22px;font-size:.85rem;">
+            Запустить проверку →
+          </button>
+        </div>
+      </form>
+
+      <!-- LOADER -->
+      <div id="analysis-status">
+        <div class="scan-panel">
+          <div class="scan-header">
+            <div class="scan-spinner"></div>
+            <div>
+              <div class="scan-title">Выполняется глубокое сканирование</div>
+            </div>
+            <div class="scan-sub" id="scan-counter">0 / 6</div>
+          </div>
+          <div class="prog-wrap">
+            <div class="prog-track">
+              <div class="prog-fill" id="prog-fill"></div>
+            </div>
+          </div>
+          <div class="scan-body">
+            <div class="scan-row srow-chatgpt" id="sr-chatgpt">
+              <div class="scan-row-icon">
+                <svg viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-6.211-3.424 10.079 10.079 0 0 0-10.833 4.943 9.964 9.964 0 0 0-3.834 6.486 10.08 10.08 0 0 0-3.406 9.405 9.964 9.964 0 0 0 6.582 7.381 10.079 10.079 0 0 0 10.258 2.713 9.963 9.963 0 0 0 6.826 3.075 10.079 10.079 0 0 0 9.637-6.977 9.963 9.963 0 0 0 3.821-6.383 10.08 10.08 0 0 0-1.129-4.201zM22.498 37.886a7.474 7.474 0 0 1-4.799-1.735c.061-.033.168-.091.237-.134l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.49 7.496zM6.392 31.006a7.471 7.471 0 0 1-.894-5.023c.06.036.162.099.237.141l7.964 4.6a1.297 1.297 0 0 0 1.308 0l9.724-5.614v3.888a.12.12 0 0 1-.048.103l-8.051 4.649a7.504 7.504 0 0 1-10.24-2.744zM4.297 13.62A7.469 7.469 0 0 1 8.2 10.333c0 .068-.004.19-.004.274v9.201a1.294 1.294 0 0 0 .654 1.132l9.723 5.614-3.366 1.944a.12.12 0 0 1-.114.012L7.044 23.86a7.504 7.504 0 0 1-2.747-10.24zm27.658 6.437l-9.724-5.615 3.367-1.943a.121.121 0 0 1 .114-.012l8.048 4.648a7.498 7.498 0 0 1-1.158 13.528v-9.476a1.293 1.293 0 0 0-.647-1.13zm3.35-5.043c-.059-.037-.162-.099-.236-.141l-7.965-4.6a1.298 1.298 0 0 0-1.308 0l-9.723 5.614v-3.888a.12.12 0 0 1 .048-.103l8.05-4.645a7.497 7.497 0 0 1 11.135 7.763zm-21.063 6.929l-3.367-1.944a.12.12 0 0 1-.065-.092v-9.299a7.497 7.497 0 0 1 12.293-5.756 6.94 6.94 0 0 0-.236.134l-7.965 4.6a1.294 1.294 0 0 0-.654 1.132l-.006 11.225zm1.829-3.943l4.33-2.501 4.332 2.497v4.998l-4.330 2.500-4.332-2.500V18z" fill="#10A37F"/></svg>
+              </div>
+              <div class="scan-row-info">
+                <div class="scan-row-name">ChatGPT</div>
+                <div class="scan-row-detail" id="det-chatgpt">ожидание...</div>
+              </div>
+              <div class="scan-row-state" id="st-chatgpt"><span class="state-wait">—</span></div>
+            </div>
+            <div class="scan-row srow-gemini" id="sr-gemini">
+              <div class="scan-row-icon">
+                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 28C14 26.0633 13.6267 24.2433 12.88 22.54C12.1567 20.8367 11.165 19.355 9.905 18.095C8.645 16.835 7.16333 15.8433 5.46 15.12C3.75667 14.3733 1.93667 14 0 14C1.93667 14 3.75667 13.6383 5.46 12.915C7.16333 12.1683 8.645 11.165 9.905 9.905C11.165 8.645 12.1567 7.16333 12.88 5.46C13.6267 3.75667 14 1.93667 14 0C14 1.93667 14.3617 3.75667 15.085 5.46C15.8317 7.16333 16.835 8.645 18.095 9.905C19.355 11.165 20.8367 12.1683 22.54 12.915C24.2433 13.6383 26.0633 14 28 14C26.0633 14 24.2433 14.3733 22.54 15.12C20.8367 15.8433 19.355 16.835 18.095 18.095C16.835 19.355 15.8317 20.8367 15.085 22.54C14.3617 24.2433 14 26.0633 14 28Z" fill="#4285F4"/></svg>
+              </div>
+              <div class="scan-row-info">
+                <div class="scan-row-name">Gemini</div>
+                <div class="scan-row-detail" id="det-gemini">ожидание...</div>
+              </div>
+              <div class="scan-row-state" id="st-gemini"><span class="state-wait">—</span></div>
+            </div>
+            <div class="scan-row srow-claude" id="sr-claude">
+              <div class="scan-row-icon">
+                <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.93 7.058C18.195 7.058 14 10.695 14 15.984c0 2.793 1.19 4.85 3.094 6.301L10.12 38.942h5.463l1.596-4.434h11.396l1.596 4.434h5.463L28.66 22.285c1.904-1.452 3.094-3.508 3.094-6.301 0-5.289-4.195-8.926-8.823-8.926zm0 4.434c2.52 0 4.434 1.915 4.434 4.492 0 2.578-1.913 4.493-4.434 4.493-2.52 0-4.433-1.915-4.433-4.493 0-2.577 1.912-4.492 4.433-4.492zm-3.834 13.37h7.668l-3.834 10.656-3.834-10.655z" fill="#CC785C"/></svg>
+              </div>
+              <div class="scan-row-info">
+                <div class="scan-row-name">Claude</div>
+                <div class="scan-row-detail" id="det-claude">ожидание...</div>
+              </div>
+              <div class="scan-row-state" id="st-claude"><span class="state-wait">—</span></div>
+            </div>
+            <div class="scan-row srow-copilot" id="sr-copilot">
+              <div class="scan-row-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.5 14.5h-9a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5H9v-5h-.5a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h1v-5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H17V15h.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5zM12 8a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="#0078D4"/></svg>
+              </div>
+              <div class="scan-row-info">
+                <div class="scan-row-name">Microsoft Copilot</div>
+                <div class="scan-row-detail" id="det-copilot">ожидание...</div>
+              </div>
+              <div class="scan-row-state" id="st-copilot"><span class="state-wait">—</span></div>
+            </div>
+            <div class="scan-row srow-perplexity" id="sr-perplexity">
+              <div class="scan-row-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zM12 4.2l7.5 3.75L12 11.7 4.5 7.95 12 4.2zM4 9.5l7 3.5v7l-7-3.5v-7zm9 10.5v-7l7-3.5v7l-7 3.5z" fill="#20B2AA"/></svg>
+              </div>
+              <div class="scan-row-info">
+                <div class="scan-row-name">Perplexity AI</div>
+                <div class="scan-row-detail" id="det-perplexity">ожидание...</div>
+              </div>
+              <div class="scan-row-state" id="st-perplexity"><span class="state-wait">—</span></div>
+            </div>
+            <div class="scan-row srow-grok" id="sr-grok">
+              <div class="scan-row-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#1a1a1a"/></svg>
+              </div>
+              <div class="scan-row-info">
+                <div class="scan-row-name">Grok (xAI)</div>
+                <div class="scan-row-detail" id="det-grok">ожидание...</div>
+              </div>
+              <div class="scan-row-state" id="st-grok"><span class="state-wait">—</span></div>
+            </div>
+          </div>
+          <div class="scan-log" id="scan-log">
+            <span class="log-line">Инициализация сканирования...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div id="results-output">
+        <div class="report-card">
+          <!-- Header -->
+          <div class="report-header">
+            <div>
+              <div class="report-title">Отчёт по AI-видимости</div>
+              <div class="report-url" id="display-url"></div>
+            </div>
+            <span class="status-chip chip-green">
+              <span class="chip-dot"></span>
+              Найден в нейросетях
+            </span>
+          </div>
+
+          <!-- Overview -->
+          <div class="report-overview">
+            <div class="ov-cell">
+              <div class="ov-label">Упоминаний найдено</div>
+              <div class="ov-val green">4 / 6</div>
+              <div class="ov-sub">нейросети</div>
+            </div>
+            <div class="ov-cell">
+              <div class="ov-label">Индекс видимости</div>
+              <div class="ov-val">74</div>
+              <div class="ov-sub">из 100</div>
+            </div>
+            <div class="ov-cell">
+              <div class="ov-label">Тональность</div>
+              <div class="ov-val green">Позитив</div>
+              <div class="ov-sub">преобладающая</div>
+            </div>
+            <div class="ov-cell">
+              <div class="ov-label">Уровень доверия</div>
+              <div class="ov-val amber">Средний</div>
+              <div class="ov-sub">требует работы</div>
+            </div>
+          </div>
+
+          <!-- LLM rows -->
+          <div class="llm-section">
+            <div class="llm-section-title">Результаты по нейросетям</div>
+            <div class="llm-rows">
+
+              <div class="llm-row">
+                <div class="llm-logo">
+                  <svg viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-6.211-3.424 10.079 10.079 0 0 0-10.833 4.943 9.964 9.964 0 0 0-3.834 6.486 10.08 10.08 0 0 0-3.406 9.405 9.964 9.964 0 0 0 6.582 7.381 10.079 10.079 0 0 0 10.258 2.713 9.963 9.963 0 0 0 6.826 3.075 10.079 10.079 0 0 0 9.637-6.977 9.963 9.963 0 0 0 3.821-6.383 10.08 10.08 0 0 0-1.129-4.201zM22.498 37.886a7.474 7.474 0 0 1-4.799-1.735c.061-.033.168-.091.237-.134l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.49 7.496zM6.392 31.006a7.471 7.471 0 0 1-.894-5.023c.06.036.162.099.237.141l7.964 4.6a1.297 1.297 0 0 0 1.308 0l9.724-5.614v3.888a.12.12 0 0 1-.048.103l-8.051 4.649a7.504 7.504 0 0 1-10.24-2.744zM4.297 13.62A7.469 7.469 0 0 1 8.2 10.333c0 .068-.004.19-.004.274v9.201a1.294 1.294 0 0 0 .654 1.132l9.723 5.614-3.366 1.944a.12.12 0 0 1-.114.012L7.044 23.86a7.504 7.504 0 0 1-2.747-10.24zm27.658 6.437l-9.724-5.615 3.367-1.943a.121.121 0 0 1 .114-.012l8.048 4.648a7.498 7.498 0 0 1-1.158 13.528v-9.476a1.293 1.293 0 0 0-.647-1.13zm3.35-5.043c-.059-.037-.162-.099-.236-.141l-7.965-4.6a1.298 1.298 0 0 0-1.308 0l-9.723 5.614v-3.888a.12.12 0 0 1 .048-.103l8.05-4.645a7.497 7.497 0 0 1 11.135 7.763zm-21.063 6.929l-3.367-1.944a.12.12 0 0 1-.065-.092v-9.299a7.497 7.497 0 0 1 12.293-5.756 6.94 6.94 0 0 0-.236.134l-7.965 4.6a1.294 1.294 0 0 0-.654 1.132l-.006 11.225zm1.829-3.943l4.33-2.501 4.332 2.497v4.998l-4.330 2.500-4.332-2.500V18z" fill="#10A37F"/></svg>
+                </div>
+                <div style="flex:0 0 130px">
+                  <div class="llm-name">ChatGPT</div>
+                  <div class="llm-model">GPT-4o</div>
+                </div>
+                <div class="llm-bar-wrap">
+                  <div class="llm-bar-track">
+                    <div class="llm-bar-fill" style="width:82%;background:#10A37F"></div>
+                  </div>
+                  <div class="llm-bar-label"><span>Упоминаемость</span><span>82%</span></div>
+                </div>
+                <span class="llm-badge badge-ok">Найдено</span>
+              </div>
+
+              <div class="llm-row">
+                <div class="llm-logo">
+                  <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 28C14 26.0633 13.6267 24.2433 12.88 22.54C12.1567 20.8367 11.165 19.355 9.905 18.095C8.645 16.835 7.16333 15.8433 5.46 15.12C3.75667 14.3733 1.93667 14 0 14C1.93667 14 3.75667 13.6383 5.46 12.915C7.16333 12.1683 8.645 11.165 9.905 9.905C11.165 8.645 12.1567 7.16333 12.88 5.46C13.6267 3.75667 14 1.93667 14 0C14 1.93667 14.3617 3.75667 15.085 5.46C15.8317 7.16333 16.835 8.645 18.095 9.905C19.355 11.165 20.8367 12.1683 22.54 12.915C24.2433 13.6383 26.0633 14 28 14C26.0633 14 24.2433 14.3733 22.54 15.12C20.8367 15.8433 19.355 16.835 18.095 18.095C16.835 19.355 15.8317 20.8367 15.085 22.54C14.3617 24.2433 14 26.0633 14 28Z" fill="#4285F4"/></svg>
+                </div>
+                <div style="flex:0 0 130px">
+                  <div class="llm-name">Gemini</div>
+                  <div class="llm-model">Gemini 1.5 Pro</div>
+                </div>
+                <div class="llm-bar-wrap">
+                  <div class="llm-bar-track">
+                    <div class="llm-bar-fill" style="width:67%;background:#4285F4"></div>
+                  </div>
+                  <div class="llm-bar-label"><span>Упоминаемость</span><span>67%</span></div>
+                </div>
+                <span class="llm-badge badge-ok">Найдено</span>
+              </div>
+
+              <div class="llm-row">
+                <div class="llm-logo">
+                  <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.93 7.058C18.195 7.058 14 10.695 14 15.984c0 2.793 1.19 4.85 3.094 6.301L10.12 38.942h5.463l1.596-4.434h11.396l1.596 4.434h5.463L28.66 22.285c1.904-1.452 3.094-3.508 3.094-6.301 0-5.289-4.195-8.926-8.823-8.926zm0 4.434c2.52 0 4.434 1.915 4.434 4.492 0 2.578-1.913 4.493-4.434 4.493-2.52 0-4.433-1.915-4.433-4.493 0-2.577 1.912-4.492 4.433-4.492zm-3.834 13.37h7.668l-3.834 10.656-3.834-10.655z" fill="#CC785C"/></svg>
+                </div>
+                <div style="flex:0 0 130px">
+                  <div class="llm-name">Claude</div>
+                  <div class="llm-model">Claude 3.5 Sonnet</div>
+                </div>
+                <div class="llm-bar-wrap">
+                  <div class="llm-bar-track">
+                    <div class="llm-bar-fill" style="width:41%;background:#CC785C"></div>
+                  </div>
+                  <div class="llm-bar-label"><span>Упоминаемость</span><span>41%</span></div>
+                </div>
+                <span class="llm-badge badge-partial">Частично</span>
+              </div>
+
+              <div class="llm-row">
+                <div class="llm-logo">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.5 14.5h-9a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5H9v-5h-.5a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h1v-5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H17V15h.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5zM12 8a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="#0078D4"/></svg>
+                </div>
+                <div style="flex:0 0 130px">
+                  <div class="llm-name">Copilot</div>
+                  <div class="llm-model">GPT-4 Turbo</div>
+                </div>
+                <div class="llm-bar-wrap">
+                  <div class="llm-bar-track">
+                    <div class="llm-bar-fill" style="width:78%;background:#0078D4"></div>
+                  </div>
+                  <div class="llm-bar-label"><span>Упоминаемость</span><span>78%</span></div>
+                </div>
+                <span class="llm-badge badge-ok">Найдено</span>
+              </div>
+
+              <div class="llm-row">
+                <div class="llm-logo">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zM12 4.2l7.5 3.75L12 11.7 4.5 7.95 12 4.2zM4 9.5l7 3.5v7l-7-3.5v-7zm9 10.5v-7l7-3.5v7l-7 3.5z" fill="#20B2AA"/></svg>
+                </div>
+                <div style="flex:0 0 130px">
+                  <div class="llm-name">Perplexity</div>
+                  <div class="llm-model">Sonar Large</div>
+                </div>
+                <div class="llm-bar-wrap">
+                  <div class="llm-bar-track">
+                    <div class="llm-bar-fill" style="width:59%;background:#20B2AA"></div>
+                  </div>
+                  <div class="llm-bar-label"><span>Упоминаемость</span><span>59%</span></div>
+                </div>
+                <span class="llm-badge badge-ok">Найдено</span>
+              </div>
+
+              <div class="llm-row">
+                <div class="llm-logo">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#1a1a1a"/></svg>
+                </div>
+                <div style="flex:0 0 130px">
+                  <div class="llm-name">Grok</div>
+                  <div class="llm-model">Grok-2</div>
+                </div>
+                <div class="llm-bar-wrap">
+                  <div class="llm-bar-track">
+                    <div class="llm-bar-fill" style="width:18%;background:#555"></div>
+                  </div>
+                  <div class="llm-bar-label"><span>Упоминаемость</span><span>18%</span></div>
+                </div>
+                <span class="llm-badge badge-no">Не найдено</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- LOCKED: Детальный анализ тональности -->
+          <div class="locked-section">
+            <div class="llm-section-title">Детальный анализ тональности по нейросетям</div>
+            <div class="locked-blur">
+              <div class="blur-rows">
+                <div class="blur-row">
+                  <div class="blur-block" style="width:36px;height:36px;border-radius:9px;flex-shrink:0"></div>
+                  <div style="flex:1;display:flex;flex-direction:column;gap:6px">
+                    <div class="blur-block" style="width:60%"></div>
+                    <div class="blur-block" style="width:40%;opacity:.6"></div>
+                  </div>
+                  <div class="blur-block" style="width:80px;height:24px;border-radius:50px"></div>
+                </div>
+                <div class="blur-row">
+                  <div class="blur-block" style="width:36px;height:36px;border-radius:9px;flex-shrink:0"></div>
+                  <div style="flex:1;display:flex;flex-direction:column;gap:6px">
+                    <div class="blur-block" style="width:50%"></div>
+                    <div class="blur-block" style="width:35%;opacity:.6"></div>
+                  </div>
+                  <div class="blur-block" style="width:80px;height:24px;border-radius:50px"></div>
+                </div>
+                <div class="blur-row">
+                  <div class="blur-block" style="width:36px;height:36px;border-radius:9px;flex-shrink:0"></div>
+                  <div style="flex:1;display:flex;flex-direction:column;gap:6px">
+                    <div class="blur-block" style="width:70%"></div>
+                    <div class="blur-block" style="width:45%;opacity:.6"></div>
+                  </div>
+                  <div class="blur-block" style="width:80px;height:24px;border-radius:50px"></div>
+                </div>
+              </div>
+            </div>
+            <div class="locked-overlay">
+              <div class="locked-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Доступно в тарифе «Бизнес»
+              </div>
+              <div class="locked-plan">Подключите план для разблокировки</div>
+            </div>
+          </div>
+
+          <!-- LOCKED: Точные цитаты из нейросетей -->
+          <div class="locked-section">
+            <div class="llm-section-title">Точные цитаты ответов нейросетей о вашем сайте</div>
+            <div class="locked-blur">
+              <div class="blur-rows">
+                <div class="blur-row" style="height:80px;flex-direction:column;align-items:flex-start;gap:8px;padding:14px 16px">
+                  <div class="blur-block" style="width:30%"></div>
+                  <div class="blur-block" style="width:90%;opacity:.7"></div>
+                  <div class="blur-block" style="width:70%;opacity:.5"></div>
+                </div>
+                <div class="blur-row" style="height:80px;flex-direction:column;align-items:flex-start;gap:8px;padding:14px 16px">
+                  <div class="blur-block" style="width:25%"></div>
+                  <div class="blur-block" style="width:85%;opacity:.7"></div>
+                  <div class="blur-block" style="width:60%;opacity:.5"></div>
+                </div>
+              </div>
+            </div>
+            <div class="locked-overlay">
+              <div class="locked-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Доступно в тарифе «Бизнес»
+              </div>
+              <div class="locked-plan">Точные цитаты из ChatGPT, Gemini и Claude</div>
+            </div>
+          </div>
+
+          <!-- LOCKED: Конкуренты -->
+          <div class="locked-section">
+            <div class="llm-section-title">Сравнение с конкурентами в нейросетях</div>
+            <div class="locked-blur">
+              <div class="blur-rows">
+                <div class="blur-row">
+                  <div class="blur-block" style="width:36px;height:36px;border-radius:9px;flex-shrink:0"></div>
+                  <div style="flex:1;display:flex;flex-direction:column;gap:6px">
+                    <div class="blur-block" style="width:45%"></div>
+                    <div class="blur-block" style="width:30%;opacity:.6"></div>
+                  </div>
+                  <div class="blur-block" style="width:60px;height:24px;border-radius:4px"></div>
+                  <div class="blur-block" style="width:80px;height:5px;border-radius:50px"></div>
+                </div>
+                <div class="blur-row">
+                  <div class="blur-block" style="width:36px;height:36px;border-radius:9px;flex-shrink:0"></div>
+                  <div style="flex:1;display:flex;flex-direction:column;gap:6px">
+                    <div class="blur-block" style="width:40%"></div>
+                    <div class="blur-block" style="width:28%;opacity:.6"></div>
+                  </div>
+                  <div class="blur-block" style="width:60px;height:24px;border-radius:4px"></div>
+                  <div class="blur-block" style="width:80px;height:5px;border-radius:50px"></div>
+                </div>
+                <div class="blur-row">
+                  <div class="blur-block" style="width:36px;height:36px;border-radius:9px;flex-shrink:0"></div>
+                  <div style="flex:1;display:flex;flex-direction:column;gap:6px">
+                    <div class="blur-block" style="width:55%"></div>
+                    <div class="blur-block" style="width:35%;opacity:.6"></div>
+                  </div>
+                  <div class="blur-block" style="width:60px;height:24px;border-radius:4px"></div>
+                  <div class="blur-block" style="width:80px;height:5px;border-radius:50px"></div>
+                </div>
+              </div>
+            </div>
+            <div class="locked-overlay">
+              <div class="locked-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Доступно в тарифе «Премиум»
+              </div>
+              <div class="locked-plan">Анализ конкурентов Крыма в нейросетях</div>
+            </div>
+          </div>
+
+          <!-- LOCKED: Рекомендации -->
+          <div class="locked-section" style="border-bottom:none">
+            <div class="llm-section-title">Рекомендации по улучшению AI-видимости</div>
+            <div class="locked-blur">
+              <div class="rec-rows">
+                <div class="rec-row">
+                  <div class="rec-row-title">Структурируйте контент под LLM-парсинг</div>
+                  <div class="rec-row-text">Нейросети лучше усваивают данные из чётко структурированных страниц с заголовками H1–H3, Schema.org разметкой и FAQ-блоками. Ваши страницы услуг требуют переработки...</div>
+                </div>
+                <div class="rec-row">
+                  <div class="rec-row-title">Добавьте E-E-A-T сигналы на сайт</div>
+                  <div class="rec-row-text">Страницы «О компании», кейсы и отзывы с именами — ключевые факторы для повышения упоминаемости в Claude и Gemini. Сейчас у вас отсутствует...</div>
+                </div>
+                <div class="rec-row">
+                  <div class="rec-row-title">Создайте Wikipedia-совместимый профиль</div>
+                  <div class="rec-row-text">Данные из публичных баз знаний активно используются при обучении LLM. Регистрация в Wikidata повысит упоминаемость в Perplexity на...</div>
+                </div>
+              </div>
+            </div>
+            <div class="locked-overlay">
+              <div class="locked-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Доступно в тарифе «Бизнес»
+              </div>
+              <div class="locked-plan">12 персональных рекомендаций по вашему сайту</div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="report-footer">
+            <a href="#pricing" class="btn btn-dark" style="border-radius:10px;padding:11px 22px;font-size:.85rem;">Получить полный отчёт →</a>
+            <button onclick="resetForm()" class="btn btn-outline" style="border-radius:10px;padding:11px 22px;font-size:.85rem;">Проверить другой сайт</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div class="how-layout">
+      <div class="reveal">
+        <div class="section-label">Процесс</div>
+        <h2>Как это<br><em>работает</em></h2>
+        <p class="section-desc" style="margin-bottom:0">Три шага — и вы знаете всё о присутствии вашего бизнеса в мире AI-поиска.</p>
+      </div>
+      <div class="how-steps reveal">
+        <div class="how-step">
+          <div class="how-step-num">01</div>
+          <div>
+            <h3>Добавьте адрес сайта</h3>
+            <p>Введите домен вашего бизнеса. Работаем с любыми сайтами — от Симферополя до Евпатории. Без регистрации и технических знаний.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">02</div>
+          <div>
+            <h3>Система анализирует 6 нейросетей</h3>
+            <p>Отправляем запросы к ChatGPT, Gemini, Claude, Copilot, Perplexity и Grok. Проверяем упоминания, тональность, частоту и контекст ваших данных в базах знаний AI.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">03</div>
+          <div>
+            <h3>Вы получаете отчёт</h3>
+            <p>Подробный отчёт с индексом видимости, цитатами из нейросетей, сравнением с конкурентами Крыма и рекомендациями по улучшению.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:52px">
+      <div class="section-label">Возможности</div>
+      <h2>Всё для вашей<br>видимости <em>в AI</em></h2>
+    </div>
+    <div class="feat-grid reveal">
+      <div class="feat-cell">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <h3>Мониторинг нейросетей</h3>
+        <p>Постоянное отслеживание упоминаний бренда в ChatGPT, Gemini, Claude и других AI-системах.</p>
+      </div>
+      <div class="feat-cell">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        </div>
+        <h3>Анализ упоминаний</h3>
+        <p>Что именно говорят нейросети о вашем сайте — контекст, тональность, частота и качество упоминаний.</p>
+      </div>
+      <div class="feat-cell">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Проверка репутации</h3>
+        <p>Тональный анализ ответов AI: позитивные, нейтральные или негативные отзывы о вашем бизнесе.</p>
+      </div>
+      <div class="feat-cell">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Отчёты по сайту</h3>
+        <p>Структурированные PDF-отчёты с метриками, динамикой изменений и историей мониторинга.</p>
+      </div>
+      <div class="feat-cell">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3>Оптимизация под AI</h3>
+        <p>Конкретные рекомендации по контенту и структуре, которые увеличивают AI-видимость вашего бизнеса.</p>
+      </div>
+      <div class="feat-cell">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>Повышение видимости</h3>
+        <p>Стратегия вывода бизнеса Крыма в топ ответов нейросетей — Симферополь, Ялта, Севастополь, Евпатория.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:52px">
+      <div class="section-label">Тарифы</div>
+      <h2>Прозрачные цены</h2>
+      <p class="section-desc" style="margin:10px auto 0;text-align:center;max-width:420px">Начните бесплатно. Масштабируйтесь по мере роста бизнеса.</p>
+    </div>
+    <div class="pricing-grid reveal">
+
+      <div class="plan">
+        <div class="plan-name">Старт</div>
+        <div class="plan-price"><sup>₽</sup>0</div>
+        <div class="plan-price-note">бесплатно навсегда</div>
+        <div class="plan-sep"></div>
+        <ul class="plan-features">
+          <li class="hi">Проверка 1 сайта</li>
+          <li class="hi">Базовый отчёт</li>
+          <li class="hi">6 нейросетей</li>
+          <li class="hi">Индекс видимости</li>
+          <li>Детальный анализ тональности</li>
+          <li>Точные цитаты из AI</li>
+          <li>Рекомендации</li>
+          <li>Сравнение конкурентов</li>
+        </ul>
+        <a href="#checker" class="plan-btn plan-btn-outline">Начать бесплатно</a>
+      </div>
+
+      <div class="plan featured">
+        <div class="plan-tag">Популярный</div>
+        <div class="plan-name">Бизнес</div>
+        <div class="plan-price"><sup>₽</sup>4 900</div>
+        <div class="plan-price-note">в месяц · всё включено</div>
+        <div class="plan-sep"></div>
+        <ul class="plan-features">
+          <li class="hi">До 5 сайтов</li>
+          <li class="hi">Подробный анализ</li>
+          <li class="hi">Все 6 нейросетей</li>
+          <li class="hi">Детальный анализ тональности</li>
+          <li class="hi">Точные цитаты из AI</li>
+          <li class="hi">12 рекомендаций по сайту</li>
+          <li class="hi">Мониторинг раз в неделю</li>
+          <li>Сравнение конкурентов</li>
+        </ul>
+        <a href="#checker" class="plan-btn plan-btn-dark">Выбрать план</a>
+      </div>
+
+      <div class="plan">
+        <div class="plan-name">Премиум</div>
+        <div class="plan-price"><sup>₽</sup>12 500</div>
+        <div class="plan-price-note">в месяц · полный доступ</div>
+        <div class="plan-sep"></div>
+        <ul class="plan-features">
+          <li class="hi">Неограниченно сайтов</li>
+          <li class="hi">Полный мониторинг 24/7</li>
+          <li class="hi">Детальный анализ тональности</li>
+          <li class="hi">Точные цитаты из AI</li>
+          <li class="hi">Сравнение конкурентов Крыма</li>
+          <li class="hi">Персональный менеджер</li>
+          <li class="hi">API-доступ</li>
+          <li class="hi">Стратегия оптимизации</li>
+        </ul>
+        <a href="#checker" class="plan-btn plan-btn-outline">Выбрать план</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:52px">
+      <div class="section-label">Преимущества</div>
+      <h2>Почему выбирают<br><em>NeuroScan</em></h2>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <div class="why-card-num">01</div>
+        <h3>Быстрая проверка</h3>
+        <p>Полный анализ шести нейросетей за несколько минут. Никакой регистрации и лишних шагов.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">02</div>
+        <h3>Достоверные данные</h3>
+        <p>Прямые запросы к API ChatGPT, Gemini и Claude. Только реальная и актуальная информация о вашем присутствии.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">03</div>
+        <h3>Простота</h3>
+        <p>Никаких технических знаний. Понятный интерфейс и конкретные рекомендации для любого владельца бизнеса.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">04</div>
+        <h3>Фокус на Крыме</h3>
+        <p>Специализируемся на Симферополе, Севастополе, Ялте и Евпатории. Знаем специфику местного рынка.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <div class="footer-logo-mark">
+            <svg viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="3" fill="white"/>
+              <circle cx="3" cy="3" r="1.5" fill="white" opacity=".5"/>
+              <circle cx="13" cy="3" r="1.5" fill="white" opacity=".5"/>
+              <circle cx="3" cy="13" r="1.5" fill="white" opacity=".5"/>
+              <circle cx="13" cy="13" r="1.5" fill="white" opacity=".5"/>
+            </svg>
+          </div>
+          NeuroScan
+        </div>
+        <p class="footer-desc">Мониторинг и анализ видимости бизнеса в нейросетях. Крым — Симферополь, Севастополь, Ялта, Евпатория.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Продукт</h4>
+        <ul>
+          <li><a href="#checker">Проверить сайт</a></li>
+          <li><a href="#how">Как работает</a></li>
+          <li><a href="#features">Возможности</a></li>
+          <li><a href="#pricing">Тарифы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="#">Крым, г. Симферополь</a></li>
+          <li><a href="mailto:info@neuroscan.ru">info@neuroscan.ru</a></li>
+          <li><a href="tel:+79780000000">+7 (978) 000-00-00</a></li>
+          <li><a href="#">Севастополь · Ялта · Евпатория</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 NeuroScan. Мониторинг нейросетей в Крыму.</span>
+      <div style="display:flex;gap:20px">
+        <a href="#" style="font-size:.78rem;color:rgba(255,255,255,.3);text-decoration:none">Политика</a>
+        <a href="#" style="font-size:.78rem;color:rgba(255,255,255,.3);text-decoration:none">Условия</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Reveal on scroll ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ── Nav scroll ── */
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.background =
+    window.scrollY > 50 ? 'rgba(247,246,243,0.97)' : 'rgba(247,246,243,0.88)';
+});
+
+/* ── Domain mask: strip protocol ── */
+document.getElementById('site-url').addEventListener('input', function() {
+  let v = this.value.replace(/^https?:\/\//i, '').replace(/^www\./i, '');
+  if (this.value !== v) this.value = v;
+});
+document.getElementById('site-url').addEventListener('paste', function(e) {
+  e.preventDefault();
+  let pasted = (e.clipboardData || window.clipboardData).getData('text');
+  pasted = pasted.replace(/^https?:\/\//i, '').replace(/^www\./i, '').trim();
+  this.value = pasted;
+});
+
+/* ── Scan logic ── */
+const SCAN_STEPS = [
+  {
+    id: 'chatgpt', name: 'ChatGPT',
+    details: [
+      'Инициализация API-запроса к OpenAI...',
+      'Запрос промпта к GPT-4o...',
+      'Анализ контекста упоминаний...',
+      'Извлечение частотности и тональности...',
+    ]
+  },
+  {
+    id: 'gemini', name: 'Gemini',
+    details: [
+      'Подключение к Google DeepMind API...',
+      'Запрос к Gemini 1.5 Pro...',
+      'Парсинг упоминаний домена...',
+      'Оценка индекса достоверности...',
+    ]
+  },
+  {
+    id: 'claude', name: 'Claude',
+    details: [
+      'Соединение с Anthropic API...',
+      'Запрос к Claude 3.5 Sonnet...',
+      'Анализ базы знаний Anthropic...',
+      'Проверка тональности ответов...',
+    ]
+  },
+  {
+    id: 'copilot', name: 'Microsoft Copilot',
+    details: [
+      'Подключение к Microsoft Azure OpenAI...',
+      'Формирование запроса к Copilot...',
+      'Сканирование веб-индекса Bing...',
+      'Анализ AI-ответов с источниками...',
+    ]
+  },
+  {
+    id: 'perplexity', name: 'Perplexity AI',
+    details: [
+      'Инициализация Perplexity Sonar API...',
+      'Запрос с веб-поиском в реальном времени...',
+      'Извлечение источников и цитирований...',
+      'Проверка ранга в AI-поисковой выдаче...',
+    ]
+  },
+  {
+    id: 'grok', name: 'Grok (xAI)',
+    details: [
+      'Подключение к xAI API...',
+      'Запрос к Grok-2...',
+      'Анализ базы данных X (Twitter)...',
+      'Проверка реального времени обучения...',
+    ]
+  }
+];
+
+let scanTimer = null;
+let logTimer = null;
+
+function setRowState(id, state) {
+  const stEl = document.getElementById('st-' + id);
+  if (state === 'wait') stEl.innerHTML = '<span class="state-wait">—</span>';
+  if (state === 'active') stEl.innerHTML = '<span class="state-spin"></span>';
+  if (state === 'done') stEl.innerHTML = '<span class="state-ok">Готово</span>';
+}
+function setRowDetail(id, text) {
+  const el = document.getElementById('det-' + id);
+  if (el) el.textContent = text;
+}
+function setLog(text) {
+  const log = document.getElementById('scan-log');
+  log.innerHTML = '<span class="log-line">' + text + '</span>';
+}
+function setCounter(done) {
+  document.getElementById('scan-counter').textContent = done + ' / 6';
+  document.getElementById('prog-fill').style.width = Math.round((done / 6) * 100) + '%';
+}
+
+function startAnalysis(e) {
+  e.preventDefault();
+  const rawUrl = document.getElementById('site-url').value.trim();
+  const displayDomain = rawUrl.replace(/^https?:\/\//i,'').replace(/^www\./i,'');
+  const fullUrl = 'https://' + displayDomain;
+
+  const statusEl = document.getElementById('analysis-status');
+  const resultsEl = document.getElementById('results-output');
+
+  resultsEl.style.display = 'none';
+  SCAN_STEPS.forEach(s => { setRowState(s.id, 'wait'); setRowDetail(s.id, 'ожидание...'); });
+  document.getElementById('prog-fill').style.width = '0%';
+  document.getElementById('scan-counter').textContent = '0 / 6';
+  setLog('Инициализация сканирования...');
+
+  statusEl.style.display = 'block';
+  statusEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  let stepIdx = 0;
+  let detailIdx = 0;
+
+  function runStep() {
+    if (stepIdx >= SCAN_STEPS.length) {
+      setLog('✓ Сканирование завершено. Формирование отчёта...');
+      setTimeout(() => {
+        statusEl.style.display = 'none';
+        document.getElementById('display-url').textContent = fullUrl;
+        resultsEl.style.display = 'block';
+
+        // animate bars
+        resultsEl.querySelectorAll('.llm-bar-fill').forEach(b => {
+          const w = b.style.width; b.style.width = '0';
+          setTimeout(() => { b.style.width = w; }, 200);
+        });
+
+        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 900);
+      return;
+    }
+
+    const step = SCAN_STEPS[stepIdx];
+    setRowState(step.id, 'active');
+    detailIdx = 0;
+
+    function runDetail() {
+      if (detailIdx < step.details.length) {
+        setRowDetail(step.id, step.details[detailIdx]);
+        setLog('[ ' + step.name + ' ] ' + step.details[detailIdx]);
+        detailIdx++;
+        scanTimer = setTimeout(runDetail, 700 + Math.random() * 400);
+      } else {
+        setRowState(step.id, 'done');
+        setRowDetail(step.id, 'анализ завершён');
+        setCounter(stepIdx + 1);
+        stepIdx++;
+        scanTimer = setTimeout(runStep, 500);
+      }
+    }
+    runDetail();
+  }
+
+  runStep();
+}
+
+function resetForm() {
+  document.getElementById('results-output').style.display = 'none';
+  document.getElementById('analysis-status').style.display = 'none';
+  document.getElementById('site-url').value = '';
+  if (scanTimer) clearTimeout(scanTimer);
+  SCAN_STEPS.forEach(s => { setRowState(s.id, 'wait'); setRowDetail(s.id, 'ожидание...'); });
+  document.getElementById('prog-fill').style.width = '0%';
+  document.getElementById('scan-counter').textContent = '0 / 6';
+  document.getElementById('checker').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => document.getElementById('site-url').focus(), 600);
+}
+</script>
+</body>
+</html>
